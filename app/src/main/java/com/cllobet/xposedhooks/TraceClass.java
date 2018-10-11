@@ -24,7 +24,7 @@ public class TraceClass {
 		// TODO Auto-generated constructor stub
 	}
 	
-  private void traceFunction (final String className, final String funcName, LoadPackageParam lpparam, Object... objects ) {
+  public void traceFunction (final String className, final String funcName, LoadPackageParam lpparam, Object... objects ) {
         final Class<?> clazzHook = XposedHelpers.findClass(className, lpparam.classLoader);
         XposedHelpers.findAndHookMethod(clazzHook, funcName, objects, new XC_MethodHook(){
             @Override
@@ -34,7 +34,7 @@ public class TraceClass {
         });
     }
 
-    private boolean traceClass (final String className, LoadPackageParam lpparam)
+    public boolean traceClass (final String className, LoadPackageParam lpparam)
     {
 
         //   if(!IS_TRACE_ENABLED) return false;
@@ -114,7 +114,7 @@ public class TraceClass {
         return ret;
     }
  
-  private String[] getClassesOfPackage(LoadPackageParam lpparam) {
+  public String[] getClassesOfPackage(LoadPackageParam lpparam) {
       ArrayList<String> classes = new ArrayList<String>();
       try {
           String packageCodePath = lpparam.appInfo.sourceDir;//getPackageCodePath();

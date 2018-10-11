@@ -34,7 +34,9 @@ public class XposedHooks implements IXposedHookLoadPackage {
 
 		if (!lpparam.packageName.equals(packagename)) return; 
 
-		//this.traceClass("com.example.cllobet.ndklogin", lpparam);
+		TraceClass tc = new TraceClass();
+
+		tc.traceClass("com.example.cllobet.ndklogin.Domain.MainActivity", lpparam);
 		
 		/*
 		 * Hooking a method
